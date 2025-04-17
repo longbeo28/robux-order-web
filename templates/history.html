@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Lịch sử đơn hàng</title>
+    <style>
+        body {
+            background-color: #ffe6ee;
+            font-family: 'Segoe UI', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin-top: 60px;
+        }
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            color: deeppink;
+            margin-bottom: 30px;
+        }
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+            width: 80%;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px #ffccdd;
+        }
+        th {
+            background-color: pink;
+            padding: 12px;
+            font-size: 18px;
+            color: #333;
+        }
+        td {
+            padding: 12px;
+            border-top: 1px solid #eee;
+        }
+        .back-link {
+            margin-top: 30px;
+            display: inline-block;
+            color: deeppink;
+            font-weight: bold;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">💖 Lịch sử các đơn đã đặt 💖</div>
+
+        {% if orders %}
+            <table>
+                <tr>
+                    <th>Tên Roblox</th>
+                    <th>Số lượng Robux</th>
+                    <th>Thanh toán</th>
+                </tr>
+                {% for order in orders %}
+                <tr>
+                    <td>{{ order.username }}</td>
+                    <td>{{ order.amount }}</td>
+                    <td>{{ order.payment }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>Chưa có đơn nào được đặt hết 💔</p>
+        {% endif %}
+
+        <a class="back-link" href="/">⬅️ Quay về trang đặt hàng</a>
+    </div>
+</body>
+</html>

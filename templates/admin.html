@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Qu?n lý don hàng</title>
+</head>
+<body>
+    <h1>Danh sách don hàng</h1>
+    {% if orders %}
+        <ul>
+        {% for order in orders %}
+            <li>
+                <strong>{{ order.username }}</strong> - {{ order.amount }} Robux -
+                {{ order.payment_method }} lúc {{ order.timestamp }}
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Chua có don hàng nào.</p>
+    {% endif %}
+</body>
+</html>

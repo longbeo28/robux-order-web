@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đặt hàng thành công</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #eef9ff;
+            padding: 40px;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #28a745;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            padding: 8px;
+            margin-bottom: 5px;
+            background: #f9f9f9;
+            border-radius: 10px;
+        }
+        .heart {
+            font-size: 24px;
+            color: hotpink;
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🥳 Đặt hàng thành công!</h2>
+        <p><strong>{{ name }}</strong> đã đặt <strong>{{ robux }}</strong> Robux 💸</p>
+        <p class="heart">❤️</p>
+        <h3>Lịch sử đặt hàng:</h3>
+        <ul>
+            {% for order in orders %}
+                <li>🧾 {{ order.name }} đã đặt {{ order.robux }} Robux</li>
+            {% endfor %}
+        </ul>
+        <br>
+        <a href="/" style="text-decoration: none;">
+            <button>⬅️ Quay lại trang chủ</button>
+        </a>
+    </div>
+</body>
+</html>

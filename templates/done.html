@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Đặt xong rồi nè!</title>
+  <style>
+    body {
+      background-color: #fff2ec;
+      font-family: 'Quicksand', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .message-box {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+    }
+
+    h2 {
+      color: #cc6633;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #663300;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #ffc2a1;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: background 0.3s;
+    }
+
+    a:hover {
+      background: #ffa899;
+    }
+  </style>
+</head>
+<body>
+  <div class="message-box">
+    <h2>🎉 Đặt hàng thành công! 🎉</h2>
+    <p>💖 Cảm ơn bạn <strong>{{ username }}</strong> đã đặt <strong>{{ amount }}</strong> Robux.</p>
+    <a href="/">⬅ Quay lại đặt tiếp</a>
+  </div>
+</body>
+</html>

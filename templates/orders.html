@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Danh sách đơn Robux</title>
+  <style>
+    body { font-family: 'Segoe UI'; background: #fff5f0; text-align: center; }
+    table { margin: 20px auto; border-collapse: collapse; width: 80%; background: #fff; box-shadow: 0 0 10px #eee; }
+    th, td { border: 1px solid #ffdada; padding: 12px; }
+    th { background-color: #ffe4e1; }
+    tr:nth-child(even) { background-color: #fdf6f6; }
+    .btn { padding: 6px 12px; margin: 0 2px; border: none; border-radius: 6px; cursor: pointer; }
+    .delete { background: #ff6b6b; color: white; }
+    .toggle { background: #4ecdc4; color: white; }
+    .export { background: #f9a825; color: white; padding: 10px 16px; border-radius: 8px; margin: 20px auto; display: inline-block; }
+    .processed { text-decoration: line-through; opacity: 0.6; }
+  </style>
+</head>
+<body>
+  <h2>📋 Danh sách đơn Robux</h2>
+  <a href="/export" class="export">📥 Xuất Excel</a>
+  <table>
+    <tr>
+      <th>#</th>
+      <th>Tài khoản</th>
+      <th>Số lượng</th>
+      <th>Đã xử lý?</th>
+      <th>Hành động</th>
+    </tr>
+    {% for order in orders %}
+    <tr class="{{ 'processed' if order.processed == '1' else '' }}">
+      <td>{{ loop.index }}</td>
+      <td>{{ order.username }}</td>
+      <td>{{ order.amount }}</td>
+      <td>{{ '✔️' if order.processed == '1' else '❌' }}</td>
+      <td>
+        <a href="/toggle/{{ order.id }}" class="btn toggle">Chuyển</a>
+        <a href="/delete/{{ order.id }}" class="btn delete" onclick="return confirm('Xoá đơn này?');">Xoá</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>
